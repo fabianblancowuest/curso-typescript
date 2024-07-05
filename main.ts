@@ -29,8 +29,27 @@ const sayHiFromFunction = (fn: (name: string) => void) => {
     fn("Miguel")
 }
 
+// *Never, nunca devuelve nada, porque no accede al return
+function throwError(message: string): never {
+    throw new Error(message)
+}
+
 const sayHi = (name: string) => {
     console.log(`Hola ${name}`)
 }
 
 sayHiFromFunction(sayHi)
+
+// Inferencia funciones anónimas según el contexto
+const avengers = ["Spidey", "Hulk", "Avengers"]
+
+avengers.forEach((avenger) => {
+    console.log(avenger.toUpperCase)
+})
+
+// Objetos
+
+let hero = {
+    name: "Thor",
+    age: 1500
+}
