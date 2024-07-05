@@ -15,7 +15,22 @@ function saludar(name: string) {
     console.log(name)
 }
 
-function saludar2({name, age}) {
-    
-    console.log(`Hola ${name} tiene ${age} años`)
+function saludar2({name, age} : {name: string, age:number}) {
+    console.log(`Hola ${name} tiene ${age} años.`)
 }
+
+function saludar3({name, age} : {name: string, age:number}):number {
+    console.log(`Hola ${name} tiene ${age} años.`)
+    return age
+}
+
+// *Indicamos que el argumento es de tipo función que no devuelve nada, pero si quisiera puede hacerlo
+const sayHiFromFunction = (fn: (name: string) => void) => {
+    fn("Miguel")
+}
+
+const sayHi = (name: string) => {
+    console.log(`Hola ${name}`)
+}
+
+sayHiFromFunction(sayHi)
