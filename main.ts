@@ -70,8 +70,10 @@ const thor = createHero({name: "Thor", age: 1500})
 
 // *Optional properties
 
+type HeroId = `${string}-${string}-${string}-${string}-${string}`
+
 type Heroe = {
-    readonly id?: number
+    readonly id?: HeroId //Propiedad de solo lectura
     name: string
     age: number
     isActive?: boolean
@@ -81,4 +83,14 @@ let heroe : Heroe = {
     name: "Iron Man",
     age: 2000,
     isActive: false
+}
+
+function createHeroe(heroe: Heroe) : Heroe {
+    const { name, age } = heroe
+    return {
+        id: crypto.randomUUID(),
+        name,
+        age,
+        isActive: true
+    }
 }
