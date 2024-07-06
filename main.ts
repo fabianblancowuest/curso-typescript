@@ -71,12 +71,14 @@ const thor = createHero({name: "Thor", age: 1500})
 // *Optional properties
 
 type HeroId = `${string}-${string}-${string}-${string}-${string}`
+type HeroPowerScale = "local" | "planetary" | "galactic" | "universal" | "multiversal"
 
 type Heroe = {
     readonly id?: HeroId //Propiedad de solo lectura
     name: string
     age: number
     isActive?: boolean
+    powerScale?: HeroPowerScale
 }
 
 let heroe : Heroe = {
@@ -94,3 +96,40 @@ function createHeroe(heroe: Heroe) : Heroe {
         isActive: true
     }
 }
+
+type HexadecimalColor = `#${string}`
+
+// const color : HexadecimalColor = "0033ff"
+const color2: HexadecimalColor = "#0033ff"
+
+heroe.powerScale = "galactic"
+
+// Intersection Types
+
+// Arrays
+
+// Array of strings
+const languages: string [] = []
+
+// Array of strings and number
+const languagesNumbers : (string | number) [] = []
+
+// Array of Hero
+const heroesArray : Hero[] = []
+
+/* 
+[
+    ["X", "O", "X"], <- string[]
+    ["O", "X", "O"],
+    ["X", "", "X"],
+]
+*/
+
+type CellValue = "X" | "O" | ""
+
+// Una tupla es un array que tiene un límite fijado de longitud
+type gameBoard = [
+    [CellValue, CellValue, CellValue ],
+    [CellValue, CellValue, CellValue ],
+    [CellValue, CellValue, CellValue ],
+] 
