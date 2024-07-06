@@ -47,9 +47,38 @@ avengers.forEach((avenger) => {
     console.log(avenger.toUpperCase)
 })
 
-// Objetos
-
+//* Objetos
+// En este caso toma como tipos de datos del objeto con lo que hemos inicializado, por lo que no podremos cambiar el tipo de dato de name ni de age
 let hero = {
     name: "Thor",
     age: 1500
+}
+
+// *Type Alias
+
+type Hero = {
+    name: string
+    age: number
+}
+
+function createHero(hero: Hero) : Hero {
+    const {name, age} = hero
+    return { name, age }
+}
+
+const thor = createHero({name: "Thor", age: 1500})
+
+// *Optional properties
+
+type Heroe = {
+    readonly id?: number
+    name: string
+    age: number
+    isActive?: boolean
+}
+
+let heroe : Heroe = {
+    name: "Iron Man",
+    age: 2000,
+    isActive: false
 }
